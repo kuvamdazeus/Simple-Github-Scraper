@@ -14,6 +14,8 @@ soup = BeautifulSoup(webpage.content, 'html.parser')
 
 try:
     name = soup.find("span", attrs={'class': 'p-name vcard-fullname d-block overflow-hidden'}).string
+    if (name == None):
+        name = "You havent named yourself on github !"
     image_url = soup.find("img", attrs={'class': 'avatar avatar-user width-full border bg-white'})['src']
 
     repos = []
